@@ -5,22 +5,24 @@ import Router from '../Router';
 
 import './index.css'
 
-import frame from '../assets/frame.png'
-import tv_static from '../assets/static.gif'
+import frame from '../assets/frame.webp'
+import tv_static from '../assets/static.webm'
 
 function App() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(true);
+  const [isStatic, setStatic] = useState(true);
 
   const frameRef = useRef<HTMLInputElement>(null);
 
-
+  useEffect(() => {
+    setTimeout(() => {
+      setStatic(false);
+    }, 2000);
+  }, [loading]);
 
   useEffect(() => {
     (frameRef.current as any).focus();
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
   }, []);
 
   useEffect(()=> {
@@ -73,10 +75,12 @@ function App() {
 
   return (
     <div ref={frameRef} className="frame" tabIndex={0} onKeyDown={onKeyDown}>
-      <img src={frame} />
+      <img src={frame} onLoad={() => setLoading(false)}/>
       <div className="content">
-        {loading ? (
-          <img className="w-full h-full" src={tv_static}/>
+        {isStatic ? (
+          <video muted autoPlay loop width="250">
+            <source src={tv_static} type="video/webm" />
+          </video>
         ) : (
           <Router />
         )}
