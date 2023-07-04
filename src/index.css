@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'teletext';
+  src: url(./assets/european_teletext/EuropeanTeletext.ttf);
+}
+
+body {
+  margin: 0px;
+  font-family: teletext;
+  cursor: url('./assets/remote.png'), auto;
+  background-color: black;
+}
