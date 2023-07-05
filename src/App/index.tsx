@@ -1,5 +1,4 @@
 import { useState, KeyboardEventHandler, useEffect, useRef } from 'react';
-import { useInterval } from '@uidotdev/usehooks';
 import { redirect } from 'react-router-dom';
 
 import Router from '../Router';
