@@ -19,7 +19,7 @@ const Menu = () => {
         ))}
       </div>
       <div className="panel col-span-6">
-        <p><span>INFO PMU:</span> Les informations PMU ont changé</p>
+        <p><span>INFO PMU:</span> Le PMU il a changé... </p>
         <span className="absolute right-12 bottom-12">...page 620</span>
       </div>
     </div>

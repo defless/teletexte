@@ -5,6 +5,8 @@ const Header = () => {
     { name: 'GITHUB', count: 400 },
   ];
 
+  const date = new Date();
+
   return (
     <>
       <div className="header-1 grid px-10 grid-cols-12 gap-8">
@@ -27,7 +29,7 @@ const Header = () => {
           </div>
           <div className="flex justify-between">
             <span>à</span>
-            <span>22h</span>
+            <span>{date.getHours() + 2}h</span>
           </div>
         </span>
         <span className="col-span-7 flex flex-col">

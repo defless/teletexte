@@ -1,4 +1,5 @@
 import { useState, KeyboardEventHandler, useEffect, useRef } from 'react';
+import { useInterval } from '@uidotdev/usehooks';
 import { redirect } from 'react-router-dom';
 
 import Router from '../Router';
@@ -30,6 +31,9 @@ function App() {
       getAction(input);
       setInput('');
     }
+    setTimeout(() => {
+      setInput('');
+    }, 1000);
   }, [input]);
 
   const onKeyDown: KeyboardEventHandler<HTMLDivElement> = (e) => {
@@ -77,13 +81,12 @@ function App() {
     <div ref={frameRef} className="frame" tabIndex={0} onKeyDown={onKeyDown}>
       <img src={frame} onLoad={() => setLoading(false)}/>
       <div className="content">
-        {isStatic ? (
+        {!loading && isStatic && (
           <video muted autoPlay loop width="250">
             <source src={tv_static} type="video/webm" />
           </video>
-        ) : (
-          <Router />
         )}
+        {(!isStatic && (<Router />) )}
       </div>
     </div>
   )
