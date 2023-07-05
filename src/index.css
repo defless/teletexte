@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'teletext';
-  src: url(./assets/european_teletext/EuropeanTeletext.ttf);
+  src: url(./assets/EuropeanTeletext.woff);
 }
 
 body {
